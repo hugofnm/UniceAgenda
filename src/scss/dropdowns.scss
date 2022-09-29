@@ -1,0 +1,102 @@
+/**
+ * Dropdown
+ */
+@keyframes dropdownShow {
+      0% { transform: translateY( 30px ); opacity: 0; }
+    100% { transform: translateY( 0 ); opacity: 1; }
+}
+@keyframes dropdownHide {
+      0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.dropdown {
+    position: relative;
+    overflow: visible !important;
+
+    .dropdown-trigger {
+        position: relative;
+        cursor: pointer;
+    }
+    ul {
+        display: none;
+        position: absolute;
+        list-style: none;
+        text-align: left;
+        max-width: 300px;
+        padding: 6px 0;
+        top: 80%;
+        left: 0;
+        background-color: lighten( $colorDocument, 5% );
+        border-left: $lineWidth $lineStyle $colorPrimary;
+        border-radius: $lineJoin;
+        box-shadow: $shadowBold;
+        animation: dropdownShow $fxSpeed $fxEaseBounce forwards;
+        z-index: -9999;
+
+        &.dropdown-top { /* show on top */
+            top: auto;
+            bottom: 50%;
+        }
+        &.dropdown-bottom { /* show on bottom */
+            top: 50%;
+            bottom: auto;
+        }
+        &.dropdown-left { /* show on left */
+            left: auto;
+            right: 0;
+        }
+        &.dropdown-right { /* show on right */
+            left: 0;
+            right: auto;
+        }
+
+        li {
+            display: block;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        li + li {
+            border-top: 1px $lineStyle $lineColor;
+        }
+        li > a,
+        li > button,
+        li > span,
+        li > div {
+            display: block;
+            margin: 0;
+            padding: 0.6em 1em;
+            line-height: 1em;
+            white-space: nowrap;
+            background-color: rgba( 0, 0, 0, 0 );
+            color: $colorText;
+
+            &:hover {
+                background-color: rgba( 0, 0, 0, 0.06 );
+                color: darken( $colorText, 5% );
+            }
+        }
+        li.active > a,
+        li.active > button {
+            background-color: rgba( 0, 0, 0, 0.1 );
+            color: $colorPrimary;
+        }
+    }
+}
+
+// show dropdown by manual state change
+.dropdown.active > ul {
+    display: block;
+    z-index: 9999;
+}
+
+// show dropdown by user interaction
+// .dropdown:hover > ul,
+// .dropdown:active > ul,
+// .dropdown:focus > ul {
+//     display: block;
+// }
+
+
+

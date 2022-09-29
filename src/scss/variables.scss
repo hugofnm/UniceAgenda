@@ -1,0 +1,93 @@
+
+// height of topbar
+$topbarHeight: 3em;
+
+// width of sidebar
+$sidebarWidth: 320px;
+
+// spacing and padding
+$padSpace: 0.9em;
+$colSpace: 1.0em;
+$rowSpace: 1.2em;
+$listSpace: 0.4em;
+
+// borders and lines
+$lineWidth: 2px;
+$lineStyle: solid;
+$lineColor: rgba( black, 0.1 );
+$lineJoin: 4px;
+
+// base font options
+$fontSize: 20px;
+$fontFamily: Helvetica, Arial, sans-serif;
+$fontFixed: Consolas, "Andale Mono", Monaco, "Courier New", monospace;
+
+// document colors
+$colorDocument: #e0e0da;
+$colorDocumentText: #250829;
+
+// input colors
+$colorInput: #ffffff;
+$colorInputText: #404050;
+
+// default colors
+$colorDefault: #afb5b7;
+$colorDefaultText: #3e4243;
+
+// primary colors
+$colorPrimary: #8b2a2a;
+$colorPrimaryText: #ffdede;
+
+// secondary colors
+$colorSecondary: #352656;
+$colorSecondaryText: #e4dce9;
+
+// success colors
+$colorSuccess: #5c8166;
+$colorSuccessText: #e5ecd5;
+
+// warning colors
+$colorWarning: #9d9d69;
+$colorWarningText: #f4ead0;
+
+// warning colors
+$colorDanger: #5a1638;
+$colorDangerText: #fae3e0;
+
+// warning colors
+$colorInfo: #29567b;
+$colorInfoText: #e0ebf4;
+
+// grey colors
+$colorGrey: #686868;
+$colorGreyText: #e5e4e4;
+
+// bright colors
+$colorBright: #ffffff;
+$colorBrightText: #434343;
+
+// base page colors
+$colorText: #404050;
+$colorBg: darken( $colorDocument, 10% );
+$colorInput: lighten( $colorDocument, 20% );
+$colorOverlay: rgba( 0, 0, 0, 0.6 );
+
+// common shadow styles
+$shadowHollow: inset 0 2px 8px rgba( 0, 0, 0, 0.2 );
+$shadowBubble: inset 0 -20px 20px rgba( 0, 0, 0, 0.1 );
+$shadowPaper: 0 1px 2px rgba( 0, 0, 0, 0.2 );
+$shadowDark: 0 1px 3px rgba( 0, 0, 0, 0.3 );
+$shadowGlow: 0 0 10px rgba( 0, 0, 0, 0.2 );
+$shadowBold: 0 2px 12px rgba( 0, 0, 0, 0.4 );
+$shadowText: 1px 1px 0 rgba( 0, 0, 0, 0.3 );
+
+// common speed for most small ui transition animations
+$fxSpeed: 400ms;
+$fxEase: cubic-bezier( 0.215, 0.610, 0.355, 1.000 );
+$fxEaseBounce: cubic-bezier( 0.640, -0.280, 0.050, 1.405 );
+$fxSpeedOffset: calc( #{$fxSpeed} / 3 );
+$fxSlideDist: 100px;
+$fxShrinkScale: .5;
+$fxGrowScale: 2;
+$fxRotateAmount: 8deg;
+
