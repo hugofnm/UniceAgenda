@@ -94,14 +94,14 @@ export default {
     data() {
         return {
             author: {
-                name: "Rainner Lins",
-                email: "rainnerlins@gmail.com",
-                website: "https://rainnerlins.com/",
-                github: "https://github.com/rainner/",
+                name: "MetrixMedia",
+                email: "contact+todolist@metrixmedia.fr",
+                website: "https://metrixmedia.fr/",
+                github: "https://github.com/metrixmedia/",
             },
             links: {
-                repo: "https://github.com/rainner/todo-webapp/",
-                demo: "https://rainner.github.io/todo-webapp/",
+                repo: "https://github.com/metrixmedia/",
+                demo: "https://hugofnm.github.io/ToDoList-Firebase/",
                 webpack: "https://webpack.js.org/",
                 vuejs: "https://vuejs.org/v2/guide/",
                 firebase: "https://firebase.google.com/",
