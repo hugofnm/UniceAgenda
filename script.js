@@ -59,10 +59,12 @@ db.orderByChild("timestamp").on("value", function(snapshot) {
 
    const div = document.createElement("div");
    const text = document.createTextNode(`${childData.ds} | ${childData.matiere} | ${childData.devoir} | Pour le : ${childData.date}`);
+   if (Math.floor(Date.now() / 1000) < childData.timestamp) {
    div.classList.add("container2");
    div.classList.add("noteText");
    div.classList.add("blur");
    div.appendChild(text);
    notes.append(div);
+   } else { }
   });
  });
