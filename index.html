@@ -1,17 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Todos App</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-    <meta name="description" content="A to-do list made with MetrixMedia" />
-    <meta name="author" content="Hugo Meleiro" />
-    <meta name="copyright" content="&copy; All Rights Reserved" />
-    <link href="public/css/fonts.css" rel="stylesheet" />
-    <link href="favicon.ico" rel="shortcut icon" />
-</head>
-<body>
-    <div id="app" v-cloak></div>
-    <script src="public/js/bundle.js"></script>
-</body>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agenda</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./favicon-16x16.png"
+    />
+    <link rel="manifest" href="./site.webmanifest" />
+  </head>
+
+  <body>
+    <div class="outer">
+      <div class="title">
+        <h1> Agenda | GEII Groupe 2 </h1>
+      </div>
+      <div class="container" style="margin: 0 auto">
+        <form class="note" id="ajoutDevoir">
+          <a>AJOUTER UN DEVOIR</a>
+          <br>
+          <label for="matiere">Matière :</label>
+          <select id="matiere" name="matiere">
+            <option value="Mathématiques">Maths</option>
+            <option value="Elen (Electronique)">Elen</option>
+            <option value="Ener (Energie)">Ener</option>
+            <option value="Automatismes">Automatisme</option>
+            <option value="Physique Appliquée">Physique</option>
+            <option value="Anglais">Anglais</option>
+            <option value="Culture & Communication">Communication</option>
+          </select>
+          <br>
+          <label for="devoir">Devoir :</label>
+          <input type="text" id="devoir" name="devoir">
+          <br>
+          <label for="date">Date :</label>
+          <input type="date" id="date" name="date">
+          <br>
+          <label for="ctrl">Contrôle / DS :</label>
+          <select id="ds" name="ds">
+            <option value="DEVOIR">Non</option>
+            <option value="CONTROLE">Oui</option>
+          </select>
+          <br>
+          <button id="submit"> Ajouter </button>
+          </div>
+        </form>
+      </div>
+      <div class="notes"></div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/9.9.4/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.9.4/firebase-analytics-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.9.4/firebase-database-compat.js"></script>
+    <script src="./script.js"></script>
+  </body>
 </html>

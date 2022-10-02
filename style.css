@@ -1,0 +1,230 @@
+/* Boilerplate start */
+
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100vh;
+  background-image: linear-gradient(100deg, #575656, #062e3f);
+  color: #ffdfdb;
+}
+
+body {
+  font-size: 3em;
+  text-rendering: optimizeLegibility;
+  font-family: "Work Sans", sans-serif;
+}
+
+body,
+ul,
+ol,
+dl {
+  margin: 0;
+}
+
+article,
+aside,
+audio,
+footer,
+header,
+nav,
+section,
+video {
+  display: block;
+}
+
+/* Boilerplate end */
+
+.outer {
+  height: 50vh;
+  animation: transitionIn 0.75s;
+}
+
+.title {
+  margin-top: 75px;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+}
+
+  /* Animation */
+  #title {
+    animation: animated-text 2s steps(11,end) 0.5s 1 normal both,
+        animated-cursor 750ms steps(11,end) infinite;
+  }
+
+.banner img {
+  min-width: 300px;
+  align-self: center;
+}
+
+.notes {
+  padding: 30px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap;
+  gap: 50px;
+}
+
+.note {
+  font-size: 20px;
+  margin-top: 12px;
+}
+
+.container {
+  text-align: center;
+  margin: 10px auto; /*added centre to container */
+  min-width: 250px;
+  width: 25%;
+  background: #181a1a;
+  height: 175px;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%) !important;
+  transition: transform 0.2s;
+  overflow: hidden;
+  animation: transitionIn 3s;
+}
+
+.container2 {
+  min-width: 1000px;
+  width: 22%;
+  height: auto;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%) !important;
+  box-shadow: inset 0px 0px 20px 1px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+  overflow: hidden;
+  animation: transitionIn 0.75s;
+}
+
+.blur {
+  backdrop-filter: blur(10px);
+}
+
+.container2:hover {
+  transform: scale(1.1);
+}
+
+.container:hover > .noteLabel {
+  color: black;
+}
+
+.noteLabel {
+  font-size: small;
+  font-weight: 700;
+  position: absolute;
+  top: 16px;
+  left: 18px;
+  text-align: left;
+  letter-spacing: 2px;
+  color: rgb(129, 129, 129);
+}
+
+.limit {
+  font-size: 11px;
+  font-style: italic;
+  position: absolute;
+  top: 18px;
+  right: 18px;
+}
+
+/* .container form input[type="text"] {
+  position: absolute;
+  display: block;
+  width: 90%;
+  padding: 20px 10px;
+  line-height: 610%;
+  margin: 2px auto;
+  border-radius: 5px;
+  border: 1px solid;
+  top: 30px;
+  left: 0;
+  right: 0;
+} */
+
+.container form input:active {
+  border: none;
+}
+
+.colors {
+  width: 50%;
+  height: 30px;
+  position: absolute;
+  bottom: 7px;
+  left: 25px;
+  display: flex;
+  gap: 5px;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
+
+.textDec {
+  width: 30%;
+  height: 30px;
+  position: absolute;
+  bottom: 7px;
+  right: 25px;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+}
+
+.image {
+  width: 15px;
+  min-width: 15px;
+  height: 15px;
+  min-height: 15px;
+  background-size: contain;
+  background-position: center center;
+  display: inline-block;
+  opacity: 40%;
+}
+
+.image:hover {
+  opacity: 100%;
+}
+
+.radio-img input[type="radio"],
+.check-img input[type="checkbox"] {
+  display: none;
+}
+
+.radio-img .image,
+.check-img .image {
+  cursor: pointer;
+}
+
+.radio-img input[type="radio"]:checked + .image,
+.check-img input[type="checkbox"]:checked + .image {
+  opacity: 100%;
+}
+
+.noteText {
+  text-align: center;
+  padding: 20px;
+  font-size: medium;
+}
+
+@keyframes transitionIn {
+  from {
+    opacity: 0;
+    transform: rotateX(-10deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: rotateX(0);
+  }
+}
