@@ -10,9 +10,8 @@
 
 html,
 body {
-  min-height: 100vh;
-  background-image: linear-gradient(100deg, #575656, #062e3f);
-  color: #ffdfdb;
+  background-image: linear-gradient(100deg, #d4f1ff, #ffffff);
+  color: #000000;
 }
 
 body {
@@ -42,23 +41,35 @@ video {
 /* Boilerplate end */
 
 .outer {
-  height: 50vh;
+  height: auto;
   animation: transitionIn 0.75s;
 }
 
 .title {
-  margin-top: 75px;
+  margin-top: 20px;
   width: 100%;
-  height: 200px;
+  height: auto;
   display: flex;
   justify-content: center;
 }
 
-  /* Animation */
-  #title {
-    animation: animated-text 2s steps(11,end) 0.5s 1 normal both,
-        animated-cursor 750ms steps(11,end) infinite;
-  }
+/* Animation */
+#title {
+  animation: animated-cursor 750ms steps(11,end) infinite;
+}
+
+.copyright {
+  margin-top: 20px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+@keyframes animated-cursor{
+  from{border-right-color: rgba(0, 0, 0, 0.75);}
+  to{border-right-color: transparent;}
+}
 
 .banner img {
   min-width: 300px;
@@ -71,7 +82,7 @@ video {
   justify-content: center;
   align-items: center;
   flex-flow: wrap;
-  gap: 50px;
+  gap: 25px;
 }
 
 .note {
@@ -84,7 +95,7 @@ video {
   margin: 10px auto; /*added centre to container */
   min-width: 250px;
   width: 25%;
-  background: #181a1a;
+  background: rgb(255, 255, 255);
   height: 175px;
   border-radius: 10px;
   position: relative;
@@ -95,8 +106,8 @@ video {
 }
 
 .container2 {
-  min-width: 1000px;
-  width: 22%;
+  min-width: auto;
+  width: auto;
   height: auto;
   border-radius: 10px;
   position: relative;
@@ -105,6 +116,9 @@ video {
   transition: transform 0.2s;
   overflow: hidden;
   animation: transitionIn 0.75s;
+  margin-left: 5vh;
+  margin-right: 5vh;
+  margin-bottom: auto;
 }
 
 .blur {

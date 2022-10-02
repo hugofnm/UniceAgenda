@@ -25,21 +25,25 @@ function submitForm(e) {
   var date = getElementVal("date");
   var ds = getElementVal("ds");
 
-  saveHomework(matiere, devoir, date, ds);
+  var convertedDate = new Date(date);
+  var timestamp = Math.floor(convertedDate.getTime() / 1000);
+
+  saveHomework(matiere, devoir, date, ds, timestamp);
   alert("Devoir ajouté !");  
 
   document.getElementById("ajoutDevoir").reset();
   location.reload();
 }
 
-const saveHomework = (matiere, devoir, date, ds) => {
+const saveHomework = (matiere, devoir, date, ds, timestamp) => {
   var newHomework = db.push();
 
   newHomework.set({
     matiere: matiere,
     devoir: devoir,
     date: date,
-    ds: ds
+    ds: ds,
+    timestamp: timestamp
   });
 }
 
@@ -47,7 +51,7 @@ const getElementVal = (id) => {
   return document.getElementById(id).value;
 }
 
-db.on("value", function(snapshot) {
+db.orderByChild("timestamp").on("value", function(snapshot) {
   snapshot.forEach(function(childSnapshot) {
    var childData = childSnapshot.val();
    var id=childData.id;
@@ -57,7 +61,6 @@ db.on("value", function(snapshot) {
    const text = document.createTextNode(`${childData.ds} | ${childData.matiere} | ${childData.devoir} | Pour le : ${childData.date}`);
    div.classList.add("container2");
    div.classList.add("noteText");
-
    div.classList.add("blur");
    div.appendChild(text);
    notes.append(div);

@@ -29,7 +29,7 @@
   <body>
     <div class="outer">
       <div class="title">
-        <h1> Agenda | GEII Groupe 2 </h1>
+        <h1 id="title" style="font-size: clamp(16px, 7vw, 64px);; margin-bottom: 25px; border-right: solid 3px rgba(0, 0, 0, 0.75);"> Agenda | GEII Groupe 2 </h1>
       </div>
       <div class="container" style="margin: 0 auto">
         <form class="note" id="ajoutDevoir">
@@ -64,6 +64,10 @@
       </div>
       <div class="notes"></div>
     </div>
+    <div class="copyright">
+      <a style="justify-content: center; position:absolute; font-size: medium;" href="https://metrixmedia.fr">&copy MetrixMedia</a>
+    </div>
+
     <script src="https://www.gstatic.com/firebasejs/9.9.4/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.9.4/firebase-analytics-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.9.4/firebase-database-compat.js"></script>
