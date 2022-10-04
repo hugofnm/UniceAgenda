@@ -1,3 +1,5 @@
+// Firebase configuration
+
 const firebaseConfig = {
   apiKey: "AIzaSyCUIi0m91uGMH6PHpcUIDyTaytI2lSsCHI",
   authDomain: "todoapp-metrix.firebaseapp.com",
@@ -17,7 +19,7 @@ var db = firebase.database().ref("agendaGEII")
 
 document.getElementById("ajoutDevoir").addEventListener("submit", submitForm);
 
-//add function 
+// Add function 
 function submitForm(e) {
   e.preventDefault();
   var matiere = getElementVal("matiere");
@@ -29,7 +31,7 @@ function submitForm(e) {
   var timestamp = Math.floor(convertedDate.getTime() / 1000);
 
   saveHomework(matiere, devoir, date, ds, timestamp);
-  alert("Devoir ajouté !");  
+  alert("Devoir ajouté ! Votre IP a été enregistrée, elle sera utilisée en cas de vandalisme.");  
 
   document.getElementById("ajoutDevoir").reset();
   location.reload();
@@ -51,6 +53,7 @@ const getElementVal = (id) => {
   return document.getElementById(id).value;
 }
 
+// Order by date function
 db.orderByChild("timestamp").on("value", function(snapshot) {
   snapshot.forEach(function(childSnapshot) {
    var childData = childSnapshot.val();

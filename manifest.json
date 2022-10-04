@@ -1,0 +1,16 @@
+{
+    "name": "Agenda | GEII Groupe 2",
+    "short_name": "Agenda",
+    "start_url": "index.html",
+    "scope": "./",
+    "icons": [
+      {
+        "src": "favicon.png",
+        "sizes": "48x48",
+        "type": "image/png"
+      }
+    ],
+    "theme_color": "#FFFFFF",
+    "background_color": "#FFFFFF",
+    "display": "standalone"
+  }
