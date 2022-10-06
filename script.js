@@ -70,10 +70,16 @@ db.orderByChild("timestamp").on("value", function(snapshot) {
     div.classList.add("noteText");
     div.classList.add("blur");
     notes.setAttribute('id', 'notes');
-    const cb = document.createElement('input');
-    cb.type = 'checkbox';
-    cb.setAttribute('id', childSnapshot.key);
-    div.appendChild(cb);
+
+    // Ajout checkbox
+    if (childData.ds == "DEVOIR") {
+      const cb = document.createElement('input');
+      cb.type = 'checkbox';
+      cb.setAttribute('id', childSnapshot.key);
+      div.appendChild(cb);
+    }
+
+    // Ajout texte
     div.appendChild(text);
     notes.append(div);
    } else { }
