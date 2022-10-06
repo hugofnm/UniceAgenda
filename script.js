@@ -57,17 +57,43 @@ const getElementVal = (id) => {
 db.orderByChild("timestamp").on("value", function(snapshot) {
   snapshot.forEach(function(childSnapshot) {
    var childData = childSnapshot.val();
-   var id=childData.id;
-   console.log(childData);
+
+   // Debug
+   // console.log(childData);
 
    const div = document.createElement("div");
    const text = document.createTextNode(`${childData.ds} | ${childData.matiere} | ${childData.devoir} | Pour le : ${childData.date}`);
+
+   // Remove old homework and sort by date
    if (Math.floor(Date.now() / 1000) < childData.timestamp) {
-   div.classList.add("container2");
-   div.classList.add("noteText");
-   div.classList.add("blur");
-   div.appendChild(text);
-   notes.append(div);
+    div.classList.add("container2");
+    div.classList.add("noteText");
+    div.classList.add("blur");
+    notes.setAttribute('id', 'notes');
+    const cb = document.createElement('input');
+    cb.type = 'checkbox';
+    cb.setAttribute('id', childSnapshot.key);
+    div.appendChild(cb);
+    div.appendChild(text);
+    notes.append(div);
    } else { }
   });
  });
+
+setTimeout(function(){
+  var checkboxValues = JSON.parse(localStorage.getItem('checkboxValues')) || {};
+  var $checkboxes = jQuery("#notes :checkbox");
+  
+  $checkboxes.on("change", function(){
+    $checkboxes.each(function(){
+      checkboxValues[this.id] = this.checked;
+    });
+    localStorage.setItem("checkboxValues", JSON.stringify(checkboxValues));
+  });
+  
+  jQuery.each(checkboxValues, function(key, value) {
+    jQuery("#" + key).prop('checked', value);
+  });
+}, 500);
+ 
+
