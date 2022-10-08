@@ -55,7 +55,7 @@
           </div>
         </form>
       </div>
-      <div style="margin: 0 auto; width: 200px;">
+      <div style="margin: 0 auto; width: 170px;">
         <button id="calendarview" onclick="viewList()">Vue Liste</button>
         <button id="calendarview" onclick="viewCalendar()">Vue Calendrier</button>
       </div>
@@ -63,7 +63,7 @@
       <div id='calendar'></div>
     </div>
     <div class="copyright">
-      <a style="justify-content: center; position:absolute; font-size: medium;" href="https://metrixmedia.fr">v2.5.0 - &copy MetrixMedia | Protégé par CloudFlare</a>
+      <a style="justify-content: center; position:absolute; font-size: medium;" href="https://metrixmedia.fr">v2.5.1 - &copy MetrixMedia | Protégé par CloudFlare</a>
       <br>
       <a></a>
     </div>
@@ -74,5 +74,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.js"></script>
     <script>jQuery.noConflict();</script>
     <script src="./script.js"></script>
+    <script>
+      if (typeof navigator.serviceWorker !== 'undefined') {
+        navigator.serviceWorker.register('sw.js')
+      }
+    </script>
   </body>
 </html>

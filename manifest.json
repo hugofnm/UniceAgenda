@@ -1,16 +1,30 @@
 {
-    "name": "Agenda | GEII Groupe 2",
-    "short_name": "Agenda",
-    "start_url": "index.html",
-    "scope": "./",
-    "icons": [
-      {
-        "src": "favicon.png",
-        "sizes": "48x48",
-        "type": "image/png"
-      }
-    ],
-    "theme_color": "#FFFFFF",
-    "background_color": "#FFFFFF",
-    "display": "standalone"
-  }
+  "name": "Agenda | GEII Groupe 2",
+  "short_name": "Agenda",
+  "start_url": "index.html",
+  "scope": "./",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#FFFFFF",
+  "background_color": "#FFFFFF",
+  "display": "standalone",
+  "description": "Cet agenda vous permettra de connaître les devoirs et contrôles à venir. Seulement compatible avec l'IUT de Nice, section GEII, groupe 2.",
+  "lang": "fr",
+  "orientation": "portrait",
+  "protocol_handlers": [
+    {
+      "protocol": "geiical",
+      "url": "/index.html"
+    }
+  ],
+  "dir": "auto",
+  "categories": [
+    "education",
+    "utilities"
+  ]
+}
