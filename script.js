@@ -53,8 +53,25 @@ const getElementVal = (id) => {
   return document.getElementById(id).value;
 }
 
-// Order by date function
+// Order by date function + retrieve data
 db.orderByChild("timestamp").on("value", function(snapshot) {
+
+  var calendarEl = document.getElementById('calendar');
+
+  var calendar = new FullCalendar.Calendar(calendarEl, {
+    initialView: 'dayGridMonth',
+    locale: 'fr',
+    weekends: false,
+    headerToolbar: {
+      left: 'prev,next today',
+      center: 'title',
+      right:''
+    },
+    eventClick: function(info) {
+      alert('Matière : ' + info.event.extendedProps.matiere + '\nDevoir à faire : ' + info.event.title + '\nPour le ' + info.event.extendedProps.date);
+    }
+  });
+
   snapshot.forEach(function(childSnapshot) {
    var childData = childSnapshot.val();
 
@@ -82,10 +99,39 @@ db.orderByChild("timestamp").on("value", function(snapshot) {
     // Ajout texte
     div.appendChild(text);
     notes.append(div);
-   } else { }
+
+    // Ajout calendrier
+    calendar.addEvent({
+      title: childData.devoir,
+      start: childData.date,
+      end : childData.datefin,
+      extendedProps: {
+        matiere: childData.matiere,
+        date: childData.date
+      },
+      allDay: true
+    });
+   } else { 
+    // Affichage des devoirs passés
+    calendar.addEvent({
+      title: childData.devoir,
+      start: childData.date,
+      end : childData.datefin,
+      extendedProps: {
+        matiere: childData.matiere,
+        date: childData.date
+      },
+      allDay: true
+    });
+   }
   });
+  // Affichage du calendrier
+  calendar.render();
+  viewList();
  });
 
+
+// Local storage function (devoirs faits)
 setTimeout(function(){
   var checkboxValues = JSON.parse(localStorage.getItem('checkboxValues')) || {};
   var $checkboxes = jQuery("#notes :checkbox");
@@ -101,5 +147,15 @@ setTimeout(function(){
     jQuery("#" + key).prop('checked', value);
   });
 }, 500);
- 
 
+// Vue Calendrier/Liste
+function viewCalendar() {
+  document.getElementById('calendar').style.display="block";
+  document.getElementById('calendar').style.height="auto";
+  document.getElementById('notes').style.display="none";
+}
+
+function viewList() {
+  document.getElementById('calendar').style.display="none";
+  document.getElementById('notes').style.display=null;
+}

@@ -40,6 +40,14 @@ video {
 
 /* Boilerplate end */
 
+#calendar {
+  animation: transitionIn 0.75s;
+  margin: 25px 50px 0px 50px;
+  width: auto;
+  height: auto;
+  font-size: 2vh;
+}
+
 .outer {
   height: auto;
   animation: transitionIn 0.75s;

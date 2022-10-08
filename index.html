@@ -13,10 +13,12 @@
       href="./favicon.png"
     />
     <link rel="manifest" href="manifest.json">
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.css' rel='stylesheet' />
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.js'></script>
   </head>
 
   <body>
-    <div class="outer">
+    <div class="outer" id="outer">
       <div class="title">
         <h1 id="title" style="font-size: clamp(16px, 7vw, 64px);; margin-bottom: 25px; border-right: solid 3px rgba(0, 0, 0, 0.75);"> Agenda | GEII Groupe 2 </h1>
       </div>
@@ -53,10 +55,15 @@
           </div>
         </form>
       </div>
+      <div style="margin: 0 auto; width: 200px;">
+        <button id="calendarview" onclick="viewList()">Vue Liste</button>
+        <button id="calendarview" onclick="viewCalendar()">Vue Calendrier</button>
+      </div>
       <div class="notes"></div>
+      <div id='calendar'></div>
     </div>
     <div class="copyright">
-      <a style="justify-content: center; position:absolute; font-size: medium;" href="https://metrixmedia.fr">v2.4.1 - &copy MetrixMedia | Protégé par CloudFlare</a>
+      <a style="justify-content: center; position:absolute; font-size: medium;" href="https://metrixmedia.fr">v2.5.0 - &copy MetrixMedia | Protégé par CloudFlare</a>
       <br>
       <a></a>
     </div>
