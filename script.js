@@ -1,5 +1,4 @@
 // Firebase configuration
-
 const firebaseConfig = {
   apiKey: "AIzaSyCUIi0m91uGMH6PHpcUIDyTaytI2lSsCHI",
   authDomain: "todoapp-metrix.firebaseapp.com",

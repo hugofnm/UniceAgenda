@@ -6,7 +6,12 @@
   "icons": [
     {
       "src": "favicon.png",
-      "sizes": "48x48",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "x512.png",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ],
@@ -19,12 +24,13 @@
   "protocol_handlers": [
     {
       "protocol": "geiical",
-      "url": "/index.html"
+      "url": "/index.html?%s"
     }
   ],
   "dir": "auto",
   "categories": [
     "education",
     "utilities"
-  ]
+  ],
+  "prefer_related_applications": false
 }
