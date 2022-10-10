@@ -68,11 +68,49 @@ db.orderByChild("timestamp").on("value", function(snapshot) {
     },
     eventClick: function(info) {
       alert('Matière : ' + info.event.extendedProps.matiere + '\nDevoir à faire : ' + info.event.title + '\nPour le ' + info.event.extendedProps.date);
-    }
+    },
+    events: [
+      {
+        title:"Vacances de la Toussaint",
+        start: '2022-10-27',
+        end: '2022-11-06',
+        color: 'MediumSpringGreen',
+        display: 'background'
+      },
+      {
+        title:"Vacances de Noël",
+        start: '2022-12-17',
+        end: '2023-01-02',
+        color: 'MediumSpringGreen',
+        display: 'background'
+      },
+      {
+        title:"Vacances d'hiver",
+        start: '2023-02-18',
+        end: '2023-02-26',
+        color: 'MediumSpringGreen',
+        display: 'background'
+      },
+      {
+        title:"Vacances de Pâques",
+        start: '2023-04-15',
+        end: '2023-05-01',
+        color: 'MediumSpringGreen',
+        display: 'background'
+      },
+      {
+        title:"Pont de l'Ascension",
+        start: '2023-05-17',
+        end: '2023-05-21',
+        color: 'MediumSpringGreen',
+        display: 'background'
+      },
+    ]
   });
 
   snapshot.forEach(function(childSnapshot) {
    var childData = childSnapshot.val();
+   var color = "CornflowerBlue";
 
    // Debug
    // console.log(childData);
@@ -98,31 +136,23 @@ db.orderByChild("timestamp").on("value", function(snapshot) {
     // Ajout texte
     div.appendChild(text);
     notes.append(div);
+   } else {}
 
-    // Ajout calendrier
-    calendar.addEvent({
-      title: childData.devoir,
-      start: childData.date,
-      end : childData.datefin,
-      extendedProps: {
-        matiere: childData.matiere,
-        date: childData.date
-      },
-      allDay: true
-    });
-   } else { 
-    // Affichage des devoirs passés
-    calendar.addEvent({
-      title: childData.devoir,
-      start: childData.date,
-      end : childData.datefin,
-      extendedProps: {
-        matiere: childData.matiere,
-        date: childData.date
-      },
-      allDay: true
-    });
+   if (childData.ds == "CONTRÔLE") {
+     color = "Crimson";
    }
+    // Ajout au calendrier
+    calendar.addEvent({
+      title: childData.devoir,
+      start: childData.date,
+      end : childData.datefin,
+      color: color,
+      extendedProps: {
+        matiere: childData.matiere,
+        date: childData.date
+     },
+     allDay: true
+    });
   });
   // Affichage du calendrier
   calendar.render();
