@@ -23,7 +23,7 @@
   "orientation": "portrait",
   "protocol_handlers": [
     {
-      "protocol": "geiical",
+      "protocol": "web+geiical",
       "url": "/index.html?%s"
     }
   ],

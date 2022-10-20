@@ -74,35 +74,35 @@ db.orderByChild("timestamp").on("value", function(snapshot) {
         title:"Vacances de la Toussaint",
         start: '2022-10-27',
         end: '2022-11-06',
-        color: 'MediumSpringGreen',
+        color: 'LimeGreen',
         display: 'background'
       },
       {
         title:"Vacances de Noël",
         start: '2022-12-17',
         end: '2023-01-02',
-        color: 'MediumSpringGreen',
+        color: 'LimeGreen',
         display: 'background'
       },
       {
         title:"Vacances d'hiver",
         start: '2023-02-18',
         end: '2023-02-26',
-        color: 'MediumSpringGreen',
+        color: 'LimeGreen',
         display: 'background'
       },
       {
         title:"Vacances de Pâques",
         start: '2023-04-15',
         end: '2023-05-01',
-        color: 'MediumSpringGreen',
+        color: 'LimeGreen',
         display: 'background'
       },
       {
         title:"Pont de l'Ascension",
         start: '2023-05-17',
         end: '2023-05-21',
-        color: 'MediumSpringGreen',
+        color: 'LimeGreen',
         display: 'background'
       },
     ]
@@ -128,9 +128,15 @@ db.orderByChild("timestamp").on("value", function(snapshot) {
     // Ajout checkbox
     if (childData.ds == "DEVOIR") {
       const cb = document.createElement('input');
+      const style = document.createElement('label');
+      const style2 = document.createElement('div');
+      style.classList.add("containercheck");
+      style2.classList.add("checkmark");
       cb.type = 'checkbox';
       cb.setAttribute('id', childSnapshot.key);
-      div.appendChild(cb);
+      div.appendChild(style);
+      style.appendChild(cb);
+      style.appendChild(style2);
     }
 
     // Ajout texte
@@ -140,6 +146,10 @@ db.orderByChild("timestamp").on("value", function(snapshot) {
 
    if (childData.ds == "CONTRÔLE") {
      color = "Crimson";
+   }
+
+   if (childData.matiere == "BDE - Vie étudiante") {
+     color = "Purple";
    }
     // Ajout au calendrier
     calendar.addEvent({
@@ -160,6 +170,18 @@ db.orderByChild("timestamp").on("value", function(snapshot) {
  });
 
 
+// Vue Calendrier/Liste
+function viewCalendar() {
+  document.getElementById('calendar').style.display="block";
+  document.getElementById('calendar').style.height="auto";
+  document.getElementById('notes').style.display="none";
+}
+
+function viewList() {
+  document.getElementById('calendar').style.display="none";
+  document.getElementById('notes').style.display=null;
+}
+
 // Local storage function (devoirs faits)
 setTimeout(function(){
   var checkboxValues = JSON.parse(localStorage.getItem('checkboxValues')) || {};
@@ -176,15 +198,3 @@ setTimeout(function(){
     jQuery("#" + key).prop('checked', value);
   });
 }, 500);
-
-// Vue Calendrier/Liste
-function viewCalendar() {
-  document.getElementById('calendar').style.display="block";
-  document.getElementById('calendar').style.height="auto";
-  document.getElementById('notes').style.display="none";
-}
-
-function viewList() {
-  document.getElementById('calendar').style.display="none";
-  document.getElementById('notes').style.display=null;
-}
