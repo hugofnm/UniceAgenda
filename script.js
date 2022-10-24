@@ -202,16 +202,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var edt = new FullCalendar.Calendar(calendarEdt, {
     locale: 'fr',
-    eventSources: [
-      {
-        url: 'https://calendar.google.com/calendar/ical/280qjjomfafbui0kd0jpk4v42gdeppcb%40import.calendar.google.com/public/basic.ics',
-        format: 'ics'
-      },
-      {
-        url: 'https://calendar.google.com/calendar/ical/blmeejh60k8vto6lasj5t5sa4g8m2cgs%40import.calendar.google.com/public/basic.ics',
-        format: 'ics'
-      }
-    ]
+    googleCalendarApiKey : 'AIzaSyATdEEIAy0sZoNb_WmildGuzDqMVEyK7bM',
+    events: {
+      googleCalendarId: "280qjjomfafbui0kd0jpk4v42gdeppcb@import.calendar.google.com",
+      googleCalendarId: "blmeejh60k8vto6lasj5t5sa4g8m2cgs@import.calendar.google.com"
+    }
   });
 
   edt.render()
