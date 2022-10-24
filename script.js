@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', function() {
     scrollTime: '08:00:00',
     locale: 'fr',
     weekends: false,
-    googleCalendarApiKey : 'AIzaSyCUIi0m91uGMH6PHpcUIDyTaytI2lSsCHI',
+    googleCalendarApiKey : 'AIzaSyATdEEIAy0sZoNb_WmildGuzDqMVEyK7bM',
     eventSources: 
     [
       {
