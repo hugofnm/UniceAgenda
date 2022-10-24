@@ -15,6 +15,8 @@
     <link rel="manifest" href="manifest.json">
     <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.css' rel='stylesheet' />
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ical.js/1.5.0/ical.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/icalendar@5.11.3/main.global.js'></script>
   </head>
 
   <body>
@@ -22,7 +24,12 @@
       <div class="title">
         <h1 id="title" style="font-size: clamp(16px, 7vw, 64px);; margin-bottom: 25px; border-right: solid 3px rgba(0, 0, 0, 0.75);"> Agenda | GEII Groupe 2 </h1>
       </div>
-      <div class="container" style="margin: 0 auto">
+      <div style="margin-top: -20px; margin-right: auto; margin-bottom: 30px; margin-left: auto; width: 370px;">
+        <button class="buttond" id="listview" onclick="viewList()">📑 Liste</button>
+        <button class="buttond" id="calendarview" onclick="viewCalendar()">📆 Calendrier</button>
+        <button class="buttond" id="edtview" onclick="viewEDT()">🗿 EDT</button>
+      </div>
+      <div class="container" id="container" style="margin: 0 auto">
         <form class="note" id="ajoutDevoir">
           <a>AJOUTER UN DEVOIR</a>
           <br>
@@ -58,15 +65,12 @@
           </div>
         </form>
       </div>
-      <div style="margin: 10px auto; width: 290px;">
-        <button class="buttond" id="calendarview" onclick="viewList()">Vue Liste</button>
-        <button class="buttond" id="calendarview" onclick="viewCalendar()">Vue Calendrier</button>
-      </div>
       <div class="notes"></div>
       <div id='calendar'></div>
+      <div id='edt'></div>
     </div>
     <div class="copyright">
-      <a style="justify-content: center; position:absolute; font-size: medium;" href="https://metrixmedia.fr">v2.6.0 - &copy MetrixMedia | Protégé par CloudFlare</a>
+      <a style="justify-content: center; position:absolute; font-size: medium;" href="https://metrixmedia.fr">v2.6.1 beta - &copy MetrixMedia | Protégé par CloudFlare</a>
       <br>
       <a></a>
     </div>

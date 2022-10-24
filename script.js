@@ -104,7 +104,7 @@ db.orderByChild("timestamp").on("value", function(snapshot) {
         end: '2023-05-21',
         color: 'LimeGreen',
         display: 'background'
-      },
+      }
     ]
   });
 
@@ -174,13 +174,48 @@ db.orderByChild("timestamp").on("value", function(snapshot) {
 function viewCalendar() {
   document.getElementById('calendar').style.display="block";
   document.getElementById('calendar').style.height="auto";
+  document.getElementById('edt').style.display="none";
   document.getElementById('notes').style.display="none";
+  document.getElementById('container').style.display="none";
 }
 
 function viewList() {
   document.getElementById('calendar').style.display="none";
+  document.getElementById('edt').style.display="none";
   document.getElementById('notes').style.display=null;
+  document.getElementById('container').style.display=null;
 }
+
+function viewEDT() {
+  document.getElementById('edt').style.display="block";
+  document.getElementById('edt').style.height="auto";
+  document.getElementById('calendar').style.display="none";
+  document.getElementById('notes').style.display="none";
+  document.getElementById('container').style.display="none";
+
+}
+
+// EDT
+
+document.addEventListener('DOMContentLoaded', function() {
+  var calendarEdt = document.getElementById('edt');
+
+  var edt = new FullCalendar.Calendar(calendarEdt, {
+    locale: 'fr',
+    eventSources: [
+      {
+        url: 'https://calendar.google.com/calendar/ical/280qjjomfafbui0kd0jpk4v42gdeppcb%40import.calendar.google.com/public/basic.ics',
+        format: 'ics'
+      },
+      {
+        url: 'https://calendar.google.com/calendar/ical/blmeejh60k8vto6lasj5t5sa4g8m2cgs%40import.calendar.google.com/public/basic.ics',
+        format: 'ics'
+      }
+    ]
+  });
+
+  edt.render()
+});
 
 // Local storage function (devoirs faits)
 setTimeout(function(){
