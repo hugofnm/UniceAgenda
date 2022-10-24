@@ -201,11 +201,26 @@ document.addEventListener('DOMContentLoaded', function() {
   var calendarEdt = document.getElementById('edt');
 
   var edt = new FullCalendar.Calendar(calendarEdt, {
+    initialView: 'timeGridWeek',
+    nowIndicator: true,
+    allDaySlot: false,
+    scrollTime: '08:00:00',
     locale: 'fr',
-    googleCalendarApiKey : 'AIzaSyATdEEIAy0sZoNb_WmildGuzDqMVEyK7bM',
-    events: {
-      googleCalendarId: "280qjjomfafbui0kd0jpk4v42gdeppcb@import.calendar.google.com",
-      googleCalendarId: "blmeejh60k8vto6lasj5t5sa4g8m2cgs@import.calendar.google.com"
+    weekends: false,
+    googleCalendarApiKey : 'AIzaSyCUIi0m91uGMH6PHpcUIDyTaytI2lSsCHI',
+    eventSources: 
+    [
+      {
+        googleCalendarId: "280qjjomfafbui0kd0jpk4v42gdeppcb@import.calendar.google.com",
+        color : 'SandyBrown'
+      },
+      {
+        googleCalendarId: "blmeejh60k8vto6lasj5t5sa4g8m2cgs@import.calendar.google.com",
+        color : 'DarkSeaGreen'
+      }
+    ],
+    eventsSet: function(event, element, view) {
+      if (event.location) element.find(".fc-list-item-title").append(" - " + event.location);
     }
   });
 
