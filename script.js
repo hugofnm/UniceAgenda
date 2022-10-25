@@ -171,19 +171,20 @@ db.orderByChild("timestamp").on("value", function(snapshot) {
 
 
 // Vue Calendrier/Liste
+function viewList() {
+  document.getElementById('calendar').style.display="none";
+  document.getElementById('edt').style.display="none";
+  document.getElementById('notes').style.display=null;
+  document.getElementById('container').style.display=null;
+}
+
 function viewCalendar() {
   document.getElementById('calendar').style.display="block";
   document.getElementById('calendar').style.height="auto";
   document.getElementById('edt').style.display="none";
   document.getElementById('notes').style.display="none";
   document.getElementById('container').style.display="none";
-}
-
-function viewList() {
-  document.getElementById('calendar').style.display="none";
-  document.getElementById('edt').style.display="none";
-  document.getElementById('notes').style.display=null;
-  document.getElementById('container').style.display=null;
+  
 }
 
 function viewEDT() {
@@ -192,12 +193,12 @@ function viewEDT() {
   document.getElementById('calendar').style.display="none";
   document.getElementById('notes').style.display="none";
   document.getElementById('container').style.display="none";
-
+  renderEdt();
 }
 
 // EDT
 
-document.addEventListener('DOMContentLoaded', function() {
+function renderEdt() {
   var calendarEdt = document.getElementById('edt');
 
   var edt = new FullCalendar.Calendar(calendarEdt, {
@@ -207,6 +208,7 @@ document.addEventListener('DOMContentLoaded', function() {
     scrollTime: '08:00:00',
     locale: 'fr',
     weekends: false,
+    eventColor: 'CornflowerBlue',
     googleCalendarApiKey : 'AIzaSyATdEEIAy0sZoNb_WmildGuzDqMVEyK7bM',
     eventSources: 
     [
@@ -219,13 +221,37 @@ document.addEventListener('DOMContentLoaded', function() {
         color : 'DarkSeaGreen'
       }
     ],
-    eventsSet: function(event, element, view) {
-      if (event.location) element.find(".fc-list-item-title").append(" - " + event.location);
+    customButtons: {
+      grA: {
+        text: 'Groupe A',
+        click: function() {
+          var events = edt.getEventSources();
+          events.forEach(event => {
+            event.remove(); // this will clear 
+          });
+          edt.addEventSource("280qjjomfafbui0kd0jpk4v42gdeppcb@import.calendar.google.com");
+        }
+      },
+      grB: {
+        text: 'Groupe B',
+        click: function() {
+          var events = edt.getEventSources();
+          events.forEach(event => {
+            event.remove(); // this will clear 
+          });
+          edt.addEventSource("blmeejh60k8vto6lasj5t5sa4g8m2cgs@import.calendar.google.com");
+        }
+      }
+    },
+    headerToolbar: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'grA,grB'
     }
   });
 
-  edt.render()
-});
+  edt.render();
+};
 
 // Local storage function (devoirs faits)
 setTimeout(function(){
