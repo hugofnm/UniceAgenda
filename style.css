@@ -9,9 +9,17 @@
 }
 
 html,
+
+/*
 body {
   background-image: linear-gradient(100deg, #d4f1ff, #ffffff);
   color: #000000;
+}
+*/
+
+body {
+  background-image: linear-gradient(666deg, #000000, #9b4100);
+  color: #ffffff;
 }
 
 body {
@@ -111,7 +119,7 @@ video {
   margin: 10px auto; /*added centre to container */
   min-width: 250px;
   width: 25%;
-  background: rgb(255, 255, 255);
+  background: rgb(96, 25, 0);
   height: 175px;
   border-radius: 10px;
   position: relative;

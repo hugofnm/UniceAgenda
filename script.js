@@ -104,6 +104,13 @@ db.orderByChild("timestamp").on("value", function(snapshot) {
         end: '2023-05-21',
         color: 'LimeGreen',
         display: 'background'
+      },
+      {
+        title:"Semaine à la montagne",
+        start: '2023-01-11',
+        end: '2023-01-15',
+        color: 'Chocolate',
+        display: 'background'
       }
     ]
   });
