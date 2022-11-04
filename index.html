@@ -68,7 +68,7 @@
       <div id='edt'></div>
     </div>
     <div class="copyright">
-      <a style="justify-content: center; position:absolute; font-size: medium;" href="https://metrixmedia.fr">v3.1.0 - &copy MetrixMedia | Protégé par CloudFlare</a>
+      <a style="justify-content: center; position:absolute; font-size: medium;" href="https://metrixmedia.fr">v3.1.1 - &copy MetrixMedia | Protégé par CloudFlare</a>
       <br>
       <a></a>
     </div>
@@ -104,10 +104,12 @@
         if (currentToken) {
           console.log("The RCM Token is : " , currentToken);
           
+          if(ip != null) {
           firebase.database().ref("RCMTokens/" + window.btoa(ip)).set({
             token : currentToken,
             ip : ip
           });
+          }
         } else 
         {
           console.log('No registration token available. Request permission to generate one.');
@@ -115,6 +117,11 @@
             ip : ip
           });
         }
+      }).catch((err) => {
+        console.log('An error occurred while retrieving token. ', err);
+        firebase.database().ref("RCMTokens/" + window.btoa(ip)).set({
+            ip : ip
+          });
       });
 
       async function registerWorker() {
