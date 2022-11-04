@@ -32,5 +32,6 @@
     "education",
     "utilities"
   ],
-  "prefer_related_applications": false
+  "prefer_related_applications": false,
+  "gcm_sender_id": "599833567578"
 }

@@ -126,7 +126,7 @@ db.orderByChild("timestamp").on("value", function(snapshot) {
    const text = document.createTextNode(`${childData.ds} | ${childData.matiere} | ${childData.devoir} | Pour le : ${childData.date}`);
 
    // Remove old homework and sort by date
-   if (Math.floor(Date.now() / 1000) < childData.timestamp) {
+   if (Math.floor(Date.now() / 1000) < (childData.timestamp + 86399)) {
     div.classList.add("container2");
     div.classList.add("noteText");
     div.classList.add("blur");
@@ -216,7 +216,7 @@ function renderEdt() {
     locale: 'fr',
     weekends: false,
     eventColor: 'CornflowerBlue',
-    googleCalendarApiKey : 'AIzaSyATdEEIAy0sZoNb_WmildGuzDqMVEyK7bM',
+    googleCalendarApiKey : 'AIzaSyATdEEIAy0sZoNb_WmildGuzDqMVEyK7bM', // Clé API Google Calendar Sécurisée NE PAS MODIFIER !!!
     eventSources: 
     [
       {
@@ -234,7 +234,7 @@ function renderEdt() {
         click: function() {
           var events = edt.getEventSources();
           events.forEach(event => {
-            event.remove(); // this will clear 
+            event.remove(); // Suppression évènements
           });
           edt.addEventSource("280qjjomfafbui0kd0jpk4v42gdeppcb@import.calendar.google.com");
         }
@@ -244,7 +244,7 @@ function renderEdt() {
         click: function() {
           var events = edt.getEventSources();
           events.forEach(event => {
-            event.remove(); // this will clear 
+            event.remove(); // Suppression évènements
           });
           edt.addEventSource("blmeejh60k8vto6lasj5t5sa4g8m2cgs@import.calendar.google.com");
         }

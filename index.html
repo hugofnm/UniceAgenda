@@ -68,7 +68,7 @@
       <div id='edt'></div>
     </div>
     <div class="copyright">
-      <a style="justify-content: center; position:absolute; font-size: medium;" href="https://metrixmedia.fr">v3.0.1 - &copy MetrixMedia | Protégé par CloudFlare</a>
+      <a style="justify-content: center; position:absolute; font-size: medium;" href="https://metrixmedia.fr">v3.1.0 - &copy MetrixMedia | Protégé par CloudFlare</a>
       <br>
       <a></a>
     </div>
@@ -76,12 +76,56 @@
     <script src="https://www.gstatic.com/firebasejs/9.9.4/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.9.4/firebase-analytics-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.9.4/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.9.4/firebase-messaging-compat.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.js"></script>
     <script>jQuery.noConflict();</script>
     <script src="./script.js"></script>
     <script>
       if (typeof navigator.serviceWorker !== 'undefined') {
         navigator.serviceWorker.register('sw.js')
+      }
+    </script>
+    <script>
+      const messaging = firebase.messaging();
+      let ip = null;
+
+      messaging.onMessage((payload) => {
+        console.log('Message received. ', payload);
+      });
+
+      let apiKey = '3b00975e2b5b450eb6d0a80fd8ca58ce';
+      jQuery.getJSON('https://ipgeolocation.abstractapi.com/v1/?api_key=' + apiKey, function(data) {
+        var res = JSON.stringify(data, null, 2);
+        var obj = JSON.parse(res);
+        ip = obj.ip_address;
+      });
+
+      messaging.getToken({vapidKey: 'BBnuR2Nt-byVxVf_8pQCgdouPrzTEgXxaKycY073H_uNirqOX6UYuC-SuD_crWmm4ksFz1-yeus__u4cMdfoUUM'}).then((currentToken) => {
+        if (currentToken) {
+          console.log("The RCM Token is : " , currentToken);
+          
+          firebase.database().ref("RCMTokens/" + window.btoa(ip)).set({
+            token : currentToken,
+            ip : ip
+          });
+        } else 
+        {
+          console.log('No registration token available. Request permission to generate one.');
+          firebase.database().ref("RCMTokens/" + window.btoa(ip)).set({
+            ip : ip
+          });
+        }
+      });
+
+      async function registerWorker() {
+        const registration = await navigator.serviceWorker.register('/firebase-messaging-sw.js', {scope: '/'});
+        const subscription = await registration.pushManager.subscribe({
+        userVisibleOnly: true,
+        applicationServerKey: 'BBnuR2Nt-byVxVf_8pQCgdouPrzTEgXxaKycY073H_uNirqOX6UYuC-SuD_crWmm4ksFz1-yeus__u4cMdfoUUM'
+        });
+        }
+        if ('serviceWorker' in navigator) {
+          registerWorker().catch(error => console.error(error));
       }
     </script>
   </body>
