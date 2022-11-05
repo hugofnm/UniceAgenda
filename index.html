@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Agenda</title>
     <link rel="stylesheet" href="style.css" />
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
@@ -68,7 +69,7 @@
       <div id='edt'></div>
     </div>
     <div class="copyright">
-      <a style="justify-content: center; position:absolute; font-size: medium;" href="https://metrixmedia.fr">v3.1.1 - &copy MetrixMedia | Protégé par CloudFlare</a>
+      <a style="justify-content: center; position:absolute; font-size: medium;" href="https://metrixmedia.fr">v3.1.2 - &copy MetrixMedia | Protégé par CloudFlare</a>
       <br>
       <a></a>
     </div>
@@ -100,28 +101,20 @@
         ip = obj.ip_address;
       });
 
+      firebase.database().ref("IPs/" + window.btoa(ip)).set({
+            ip : ip
+          });
+
       messaging.getToken({vapidKey: 'BBnuR2Nt-byVxVf_8pQCgdouPrzTEgXxaKycY073H_uNirqOX6UYuC-SuD_crWmm4ksFz1-yeus__u4cMdfoUUM'}).then((currentToken) => {
         if (currentToken) {
-          console.log("The RCM Token is : " , currentToken);
-          
           if(ip != null) {
-          firebase.database().ref("RCMTokens/" + window.btoa(ip)).set({
-            token : currentToken,
-            ip : ip
+          firebase.database().ref("IPs/" + window.btoa(ip)).set({
+            token : currentToken
           });
           }
-        } else 
-        {
+        } else {
           console.log('No registration token available. Request permission to generate one.');
-          firebase.database().ref("RCMTokens/" + window.btoa(ip)).set({
-            ip : ip
-          });
         }
-      }).catch((err) => {
-        console.log('An error occurred while retrieving token. ', err);
-        firebase.database().ref("RCMTokens/" + window.btoa(ip)).set({
-            ip : ip
-          });
       });
 
       async function registerWorker() {
