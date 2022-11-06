@@ -69,7 +69,7 @@
       <div id='edt'></div>
     </div>
     <div class="copyright">
-      <a style="justify-content: center; position:absolute; font-size: medium;" href="https://metrixmedia.fr">v3.1.2 - &copy MetrixMedia | Protégé par CloudFlare</a>
+      <a style="justify-content: center; position:absolute; font-size: medium;" href="https://metrixmedia.fr">v3.1.3 - &copy MetrixMedia | Protégé par CloudFlare</a>
       <br>
       <a></a>
     </div>
@@ -90,25 +90,24 @@
       const messaging = firebase.messaging();
       let ip = null;
 
-      messaging.onMessage((payload) => {
-        console.log('Message received. ', payload);
-      });
-
       let apiKey = '3b00975e2b5b450eb6d0a80fd8ca58ce';
       jQuery.getJSON('https://ipgeolocation.abstractapi.com/v1/?api_key=' + apiKey, function(data) {
         var res = JSON.stringify(data, null, 2);
         var obj = JSON.parse(res);
         ip = obj.ip_address;
-      });
-
-      firebase.database().ref("IPs/" + window.btoa(ip)).set({
+        firebase.database().ref("IPs/" + window.btoa(ip)).set({
             ip : ip
           });
+      });
+
+      messaging.onMessage((payload) => {
+        console.log('Message received. ', payload);
+      });
 
       messaging.getToken({vapidKey: 'BBnuR2Nt-byVxVf_8pQCgdouPrzTEgXxaKycY073H_uNirqOX6UYuC-SuD_crWmm4ksFz1-yeus__u4cMdfoUUM'}).then((currentToken) => {
         if (currentToken) {
           if(ip != null) {
-          firebase.database().ref("IPs/" + window.btoa(ip)).set({
+          firebase.database().ref("IPs/" + window.btoa(ip)).update({
             token : currentToken
           });
           }
