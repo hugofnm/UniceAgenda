@@ -1,0 +1,502 @@
+/* Boilerplate start */
+
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+
+/*
+body {
+  background-image: linear-gradient(100deg, #d4f1ff, #ffffff);
+  color: #000000;
+}
+*/
+
+body {
+  background-image: url("/assets/christmas/hohoho.png");
+  background-repeat: no-repeat;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+body {
+  font-size: 3em;
+  text-rendering: optimizeLegibility;
+  font-family: "Work Sans", sans-serif;
+}
+
+body,
+ul,
+ol,
+dl {
+  margin: 0;
+}
+
+article,
+aside,
+audio,
+footer,
+header,
+nav,
+section,
+video {
+  display: block;
+  position: absolute;
+}
+
+/* Boilerplate end */
+
+#calendar {
+  animation: transitionIn 0.75s;
+  margin: 25px 50px 0px 50px;
+  width: auto;
+  height: auto;
+  font-size: 2vh;
+}
+
+#edt {
+  animation: transitionIn 0.75s;
+  margin: 25px 50px 0px 50px;
+  width: auto;
+  height: auto;
+  font-size: 2vh;
+}
+
+.outer {
+  height: auto;
+  animation: transitionIn 0.75s;
+}
+
+.title {
+  margin-top: 20px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* Animation */
+#title {
+  animation: animated-cursor 0.75s steps(11,end) infinite;
+}
+
+.copyright {
+  margin-top: 20px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+@keyframes animated-cursor{
+  from{border-right-color: rgba(0, 0, 0, 0.75);}
+  to{border-right-color: transparent;}
+}
+
+.banner img {
+  min-width: 300px;
+  align-self: center;
+}
+
+.notes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap;
+  gap: 25px;
+}
+
+.note {
+  font-size: 20px;
+  margin-top: 12px;
+}
+
+.container {
+  text-align: center;
+  margin: 10px auto; /*added centre to container */
+  min-width: 250px;
+  width: 25%;
+  background: #3B756C;
+  height: 175px;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%) !important;
+  transition: transform 0.2s;
+  overflow: hidden;
+  animation: transitionIn 0.75s;
+}
+
+.container2 {
+  min-width: auto;
+  width: auto;
+  height: auto;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%) !important;
+  box-shadow: inset 0px 0px 20px 1px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+  overflow: hidden;
+  animation: transitionIn 0.75s;
+  margin-left: 5vh;
+  margin-right: 5vh;
+  margin-bottom: auto;
+}
+
+.blur {
+  backdrop-filter: blur(150px);
+}
+
+.container2:hover {
+  transform: scale(1.1);
+}
+
+.container:hover > .noteLabel {
+  color: black;
+}
+
+.noteLabel {
+  font-size: small;
+  font-weight: 700;
+  position: absolute;
+  top: 16px;
+  left: 18px;
+  text-align: left;
+  letter-spacing: 2px;
+  color: rgb(129, 129, 129);
+}
+
+.limit {
+  font-size: 11px;
+  font-style: italic;
+  position: absolute;
+  top: 18px;
+  right: 18px;
+}
+
+/* .container form input[type="text"] {
+  position: absolute;
+  display: block;
+  width: 90%;
+  padding: 20px 10px;
+  line-height: 610%;
+  margin: 2px auto;
+  border-radius: 5px;
+  border: 1px solid;
+  top: 30px;
+  left: 0;
+  right: 0;
+} */
+
+.container form input:active {
+  border: none;
+}
+
+.colors {
+  width: 50%;
+  height: 30px;
+  position: absolute;
+  bottom: 7px;
+  left: 25px;
+  display: flex;
+  gap: 5px;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
+
+.textDec {
+  width: 30%;
+  height: 30px;
+  position: absolute;
+  bottom: 7px;
+  right: 25px;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+}
+
+.image {
+  width: 15px;
+  min-width: 15px;
+  height: 15px;
+  min-height: 15px;
+  background-size: contain;
+  background-position: center center;
+  display: inline-block;
+  opacity: 40%;
+}
+
+.image:hover {
+  opacity: 100%;
+}
+
+.radio-img input[type="radio"],
+.check-img input[type="checkbox"] {
+  display: none;
+}
+
+.radio-img .image,
+.check-img .image {
+  cursor: pointer;
+}
+
+.radio-img input[type="radio"]:checked + .image,
+.check-img input[type="checkbox"]:checked + .image {
+  opacity: 100%;
+}
+
+.noteText {
+  text-align: center;
+  padding: 20px;
+  font-size: medium;
+}
+
+@keyframes transitionIn {
+  from {
+    opacity: 0;
+    transform: rotateX(-10deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: rotateX(0);
+  }
+}
+
+/* Button */
+
+.buttond {
+  padding: 1em 1em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.buttond:hover {
+  background-color: rgb(50, 205, 50);
+  box-shadow: 0px 15px 20px rgba(50, 205, 50, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+.buttond:active {
+  transform: translateY(-1px);
+}
+
+/* Checkbox */
+
+.containercheck input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+ }
+ 
+ .containercheck {
+  width: auto;
+  position: relative;
+  cursor: pointer;
+  font-size: 20px;
+  user-select: none;
+ }
+ 
+ /* Create a custom checkbox */
+ .checkmark {
+  position: relative;
+  top: 0;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  height: 1.3em;
+  width: 1.3em;
+  background-color: #ccc;
+  border-radius: 25px;
+  transition: 0.15s;
+ }
+ 
+ /* When the checkbox is checked, add a blue background */
+ .containercheck input:checked ~ .checkmark {
+  background-color: limegreen;
+  border-radius: 25px;
+  transition: 0.15s;
+ }
+ 
+ /* Create the checkmark/indicator (hidden when not checked) */
+ .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+ }
+ 
+ /* Show the checkmark when checked */
+ .containercheck input:checked ~ .checkmark:after {
+  display: block;
+ }
+ 
+ /* Style the checkmark/indicator */
+ .containercheck .checkmark:after {
+  left: 0.45em;
+  top: 0.25em;
+  width: 0.25em;
+  height: 0.5em;
+  border: solid white;
+  border-width: 0 0.15em 0.15em 0;
+  transform: rotate(45deg);
+ }
+
+ #menuToggle
+{
+  display: block;
+  position: absolute;
+  left: 50px;
+  
+  z-index: 1;
+  
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle a
+{
+  text-decoration: none;
+  color: #232323;
+  
+  transition: color 0.3s ease;
+}
+
+#menuToggle a:hover
+{
+  color: rgb(100, 100, 100);
+}
+
+
+#menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  
+  cursor: pointer;
+  
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  
+  background: #cdcdcd;
+  border-radius: 3px;
+  
+  z-index: 1;
+  
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu
+{
+  position: absolute;
+  width: 300px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  
+  background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li
+{
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+/*
+ * And let's slide it in from the left
+ */
+#menuToggle input:checked ~ ul
+{
+  transform: none;
+}

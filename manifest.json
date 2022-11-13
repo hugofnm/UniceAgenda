@@ -15,7 +15,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#9b4100",
+  "theme_color": "#001B29",
   "background_color": "#FFFFFF",
   "display": "standalone",
   "description": "Cet agenda vous permettra de connaître les devoirs et contrôles à venir. Seulement compatible avec l'IUT de Nice, section GEII, groupe 2.",
@@ -32,6 +32,5 @@
     "education",
     "utilities"
   ],
-  "prefer_related_applications": false,
-  "gcm_sender_id": "599833567578"
+  "prefer_related_applications": false
 }
