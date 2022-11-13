@@ -19,7 +19,6 @@ body {
 
 body {
   background-image: url("/assets/christmas/hohoho.png");
-  background-repeat: no-repeat;
   color: #ffffff;
   overflow-x: hidden;
 }
@@ -149,6 +148,7 @@ video {
 
 .blur {
   backdrop-filter: blur(150px);
+  -webkit-backdrop-filter: blur(150px);
 }
 
 .container2:hover {
