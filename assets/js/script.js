@@ -165,6 +165,10 @@ db.orderByChild("timestamp").on("value", function(snapshot) {
      color = "Crimson";
    }
 
+   if (childData.ds == "RATTRAPAGE") {
+    color = "DarkOrange";
+  }
+
    if (childData.matiere == "BDE - Vie étudiante") {
      color = "Purple";
    }
@@ -186,8 +190,7 @@ db.orderByChild("timestamp").on("value", function(snapshot) {
   // Affichage du calendrier
   calendar.render();
   viewList();
- });
-
+});
 
 // Fonctions de changement de vue
 // Vue liste
