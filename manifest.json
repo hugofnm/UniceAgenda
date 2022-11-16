@@ -10,8 +10,13 @@
       "type": "image/png"
     },
     {
-      "src": "x512.png",
+      "src": "assets/images/x512.png",
       "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/images/x1024.png",
+      "sizes": "1024x1024",
       "type": "image/png"
     }
   ],

@@ -198,6 +198,7 @@ function viewList() {
   document.getElementById('calendar').style.display="none";
   document.getElementById('edt').style.display="none";
   document.getElementById('container').style.display="none";
+  document.getElementById('installer').style.display="none";
   document.getElementById('notes').style.display=null;
   document.getElementById('hamburger').checked = false;
 }
@@ -209,6 +210,7 @@ function viewCalendar() {
   document.getElementById('edt').style.display="none";
   document.getElementById('notes').style.display="none";
   document.getElementById('container').style.display="none";
+  document.getElementById('installer').style.display="none";
 }
 
 // Vue Emploi Du Temps
@@ -218,6 +220,7 @@ function viewEDT() {
   document.getElementById('calendar').style.display="none";
   document.getElementById('notes').style.display="none";
   document.getElementById('container').style.display="none";
+  document.getElementById('installer').style.display="none";
   renderEdt();
 }
 
@@ -226,8 +229,30 @@ function viewAdder() {
   document.getElementById('calendar').style.display="none";
   document.getElementById('edt').style.display="none";
   document.getElementById('notes').style.display="none";
+  document.getElementById('installer').style.display="none";
   document.getElementById('container').style.display=null;
   document.getElementById('hamburger').checked = false;
+}
+
+function viewInstaller() {
+  document.getElementById('calendar').style.display="none";
+  document.getElementById('edt').style.display="none";
+  document.getElementById('notes').style.display="none";
+  document.getElementById('container').style.display="none";
+  document.getElementById('installer').style.display=null;
+  document.getElementById('hamburger').checked = false;
+}
+
+// PWA Installation
+var beforeInstallPrompt = null;
+window.addEventListener("beforeinstallprompt", eventHandler, errorHandler);
+
+function eventHandler(event){
+    beforeInstallPrompt = event;        
+}
+
+function askPWA() {
+  beforeInstallPrompt.prompt();
 }
 
 // Vue titre selon appareil utilisé
