@@ -25,6 +25,15 @@ function playSound() {
   audio.play();
 }
 
+// Vue titre selon appareil utilisé
+if (window.matchMedia("(max-width: 600px)").matches) {
+  document.getElementById('title').innerHTML = "Agenda 🎄";
+  document.getElementById('menuToggle').style.top="30px";
+} else {
+  document.getElementById('title').innerHTML = "Agenda 🎄 GEII Groupe 2";
+  document.getElementById('menuToggle').style.top="50px";
+}
+
 // Fonction ajout de devoir
 // ESSENTIELLE
 function submitForm(e) {
@@ -253,15 +262,6 @@ function eventHandler(event){
 
 function askPWA() {
   beforeInstallPrompt.prompt();
-}
-
-// Vue titre selon appareil utilisé
-if (window.matchMedia("(max-width: 600px)").matches) {
-  document.getElementById('title').innerHTML = "Agenda 🎄";
-  document.getElementById('menuToggle').style.top="30px";
-} else {
-  document.getElementById('title').innerHTML = "Agenda 🎄 GEII Groupe 2";
-  document.getElementById('menuToggle').style.top="50px";
 }
 
 // Fonction Emploi du temps
