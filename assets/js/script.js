@@ -23,6 +23,8 @@ document.getElementById("ajoutDevoir").addEventListener("submit", submitForm);
 function playSound() {
   var audio = new Audio("assets/christmas/AllIWantForChristmasIsYou.mp3");
   audio.play();
+  console.log("All I want for Christmas is you - Mariah Carey");
+  console.log('%c ALL I WANT FOR CHRISTMAS IS YOU', 'font-weight: bold; font-size: 50px;color: red; text-shadow: 3px 3px 0 rgb(217,31,38) , 6px 6px 0 rgb(226,91,14) , 9px 9px 0 rgb(245,221,8) , 12px 12px 0 rgb(5,148,68) , 15px 15px 0 rgb(2,135,206) , 18px 18px 0 rgb(4,77,145) , 21px 21px 0 rgb(42,21,113)');
 }
 
 // Vue titre selon appareil utilisé
@@ -254,7 +256,7 @@ function viewInstaller() {
 
 // PWA Installation
 var beforeInstallPrompt = null;
-window.addEventListener("beforeinstallprompt", eventHandler, errorHandler);
+window.addEventListener("beforeinstallprompt", eventHandler);
 
 function eventHandler(event){
     beforeInstallPrompt = event;        
