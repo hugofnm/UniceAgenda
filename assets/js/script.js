@@ -15,7 +15,10 @@ const notes = document.querySelector(".notes");
 
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
-var db = firebase.database().ref("agendaGEII")
+var db = firebase.database().ref("agendaGEII");
+
+const appCheck = firebase.appCheck();
+appCheck.activate('6LefUVobAAAAAA5mVzvX-AzYqn2hSspwkBA-65BR', true);
 
 document.getElementById("ajoutDevoir").addEventListener("submit", submitForm);
 
@@ -203,6 +206,140 @@ db.orderByChild("timestamp").on("value", function(snapshot) {
   viewList();
 });
 
+function forceRefresh() {
+  document.getElementById("calendar").childNodes.forEach(function (node) {
+    node.remove();
+  });
+  db.orderByChild("timestamp").on("value", function(snapshot) {
+
+    var calendarEl = document.getElementById('calendar');
+  
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      initialView: 'dayGridMonth',
+      locale: 'fr',
+      weekends: false,
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right:''
+      },
+      eventClick: function(info) {
+        alert('Matière : ' + info.event.extendedProps.matiere + '\nDevoir à faire : ' + info.event.title + '\nPour le ' + info.event.extendedProps.date);
+      },
+      // Ajout vacances
+      events: [
+        {
+          title:"Vacances de la Toussaint",
+          start: '2022-10-27',
+          end: '2022-11-06',
+          color: 'LimeGreen',
+          display: 'background'
+        },
+        {
+          title:"Vacances de Noël",
+          start: '2022-12-17',
+          end: '2023-01-02',
+          color: 'LimeGreen',
+          display: 'background'
+        },
+        {
+          title:"Vacances d'hiver",
+          start: '2023-02-18',
+          end: '2023-02-26',
+          color: 'LimeGreen',
+          display: 'background'
+        },
+        {
+          title:"Vacances de Pâques",
+          start: '2023-04-15',
+          end: '2023-05-01',
+          color: 'LimeGreen',
+          display: 'background'
+        },
+        {
+          title:"Pont de l'Ascension",
+          start: '2023-05-17',
+          end: '2023-05-21',
+          color: 'LimeGreen',
+          display: 'background'
+        },
+        {
+          title:"Semaine à la montagne",
+          start: '2023-01-11',
+          end: '2023-01-15',
+          color: 'Chocolate',
+          display: 'background'
+        }
+      ]
+    });
+  
+    snapshot.forEach(function(childSnapshot) {
+     var childData = childSnapshot.val();
+     var color = "CornflowerBlue";
+  
+     // Debug
+     // console.log(childData);
+  
+     const div = document.createElement("div");
+     const text = document.createTextNode(`${childData.ds} | ${childData.matiere} | ${childData.devoir} | Pour le : ${childData.date}`);
+  
+     // Suppression devoirs passés + tri par date
+     if (Math.floor(Date.now() / 1000) < (childData.timestamp + 86399)) {
+      div.classList.add("container2");
+      div.classList.add("noteText");
+      div.classList.add("blur");
+      notes.setAttribute('id', 'notes');
+  
+      // Ajout checkbox pour la fonction devoirs fait
+      if (childData.ds == "DEVOIR") {
+        const cb = document.createElement('input');
+        const style = document.createElement('label');
+        const style2 = document.createElement('div');
+        style.classList.add("containercheck");
+        style2.classList.add("checkmark");
+        cb.type = 'checkbox';
+        cb.setAttribute('id', childSnapshot.key);
+        div.appendChild(style);
+        style.appendChild(cb);
+        style.appendChild(style2);
+      }
+  
+      // Ajout blocs devoirs
+      div.appendChild(text);
+      notes.append(div);
+     } else {}
+  
+     if (childData.ds == "CONTRÔLE") {
+       color = "Crimson";
+     }
+  
+     if (childData.ds == "RATTRAPAGE") {
+      color = "DarkOrange";
+    }
+  
+     if (childData.matiere == "BDE - Vie étudiante") {
+       color = "Purple";
+     }
+  
+      // Ajout au calendrier
+      calendar.addEvent({
+        title: childData.devoir,
+        start: childData.date,
+        end : childData.datefin,
+        color: color,
+        extendedProps: {
+          matiere: childData.matiere,
+          date: childData.date
+       },
+       allDay: true
+      });
+    });
+  
+    // Affichage du calendrier
+    calendar.render();
+  });
+}
+
 // Fonctions de changement de vue
 // Vue liste
 function viewList() {
@@ -222,6 +359,7 @@ function viewCalendar() {
   document.getElementById('notes').style.display="none";
   document.getElementById('container').style.display="none";
   document.getElementById('installer').style.display="none";
+  forceRefresh();
 }
 
 // Vue Emploi Du Temps

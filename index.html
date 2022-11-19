@@ -8,7 +8,6 @@
     <meta name="theme-color" content="#001B29">
     <title>Agenda</title>
     <link rel="stylesheet" href="/assets/css/style.css" />
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
     <script src="https://www.google.com/recaptcha/api.js?render=6LefUVobAAAAAA5mVzvX-AzYqn2hSspwkBA-65BR"></script>
     <link
       rel="icon"
@@ -30,10 +29,10 @@
         <ul id="menu">
           <a href="#" onclick="viewList()"><li>Accueil</li></a>
           <a onclick="viewAdder()"><li>Ajouter un devoir</li></a>
-          <a href="https://absences.unice.cf"><li>Absences</li></a>
           <a onclick="viewInstaller()"><li>Télécharger l'application</li></a>
+          <a href="https://absences.unice.cf"><li>Absences</li></a>
           <a href="https://github.com/hugofnm/UniceAgenda-GEIIG2/"><li>GitHub</li></a>
-          <a href="/easteregg.html"><li>v4.0.6 - By MetrixMedia</li></a>
+          <a href="/easteregg.html"><li>v4.1.0</li></a>
         </ul>
       </div>
       <div class="title">
@@ -75,7 +74,6 @@
             <option value="CONTRÔLE">Oui</option>
           </select>
           <br>
-          <div class="cf-turnstile" data-sitekey="0x4AAAAAAAAsCTQUE9idm88O"></div> 
           <button id="submit"> Ajouter </button>
           </div>
         </form>
@@ -96,9 +94,10 @@
       <a></a>
     </div>
 
-    <script src="https://www.gstatic.com/firebasejs/9.9.4/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.9.4/firebase-analytics-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.9.4/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-analytics-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-app-check-compat.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.js"></script>
     <script>jQuery.noConflict();</script>
     <script src="/assets/js/script.js"></script>
