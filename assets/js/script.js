@@ -22,18 +22,45 @@ appCheck.activate('6LefUVobAAAAAA5mVzvX-AzYqn2hSspwkBA-65BR', true);
 
 document.getElementById("ajoutDevoir").addEventListener("submit", submitForm);
 
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
 // Fonction spéciale noël
 function playSound() {
+  if (getRandomInt(2) == 0) {
+    playSound1();
+  } else {
+    playSound2();
+  }
+}
+function playSound1() {
   var audio = new Audio("assets/christmas/AllIWantForChristmasIsYou.mp3");
   audio.play();
   if ('mediaSession' in navigator) {
 
     navigator.mediaSession.metadata = new MediaMetadata({
       title: 'All I Want For Christmas Is You',
-      artist: 'Mariah Carey x DJ Benel.',
+      artist: 'Mariah Carey x DJ BeneI.',
       album: 'Merry Christmas',
       artwork: [
-        { src: 'assets/christmas/x1024.jpg', sizes: '1024x1024', type: 'image/jpg' },
+        { src: 'assets/christmas/cover1.png', sizes: '256x256', type: 'image/png' },
+      ]
+    });
+  }
+}
+
+function playSound2() {
+  var audio = new Audio("assets/christmas/LastChristmas.mp3");
+  audio.play();
+  if ('mediaSession' in navigator) {
+
+    navigator.mediaSession.metadata = new MediaMetadata({
+      title: 'Last Christmas',
+      artist: 'WHAM! x JL-5alv4t Productions.',
+      album: 'Merry Christmas',
+      artwork: [
+        { src: 'assets/christmas/cover2.png', sizes: '256x256', type: 'image/png' },
       ]
     });
   }
