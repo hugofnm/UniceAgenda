@@ -34,6 +34,7 @@ function playSound() {
     playSound2();
   }
 }
+
 function playSound1() {
   var audio = new Audio("assets/christmas/AllIWantForChristmasIsYou.mp3");
   audio.play();
@@ -71,7 +72,7 @@ if (window.matchMedia("(max-width: 600px)").matches) {
   document.getElementById('title').innerHTML = "Agenda 🎄";
   document.getElementById('menuToggle').style.top="30px";
 } else {
-  document.getElementById('title').innerHTML = "Agenda 🎄 GEII Groupe 2";
+  document.getElementById('title').innerHTML = "Agenda 🎄 Bonnes Vacances !";
   document.getElementById('menuToggle').style.top="50px";
 }
 
