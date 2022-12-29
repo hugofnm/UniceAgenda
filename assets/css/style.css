@@ -10,18 +10,21 @@
 
 html,
 
-/*
-body {
-  background-image: linear-gradient(100deg, #d4f1ff, #ffffff);
-  color: #000000;
-}
-*/
 
+body {
+  background: rgb(2,0,36);
+  background: linear-gradient(0deg, #0e1522, #243B55);
+  color: #ffffff;
+}
+
+
+/*
 body {
   background-image: url("/assets/christmas/hohoho.webp");
   color: #ffffff;
   overflow-x: hidden;
 }
+*/
 
 body {
   font-size: 3em;
@@ -120,7 +123,7 @@ video {
   margin: 10px auto; /*added centre to container */
   min-width: 250px;
   width: 25%;
-  background: #3B756C;
+  background: #4773a6;
   height: 175px;
   border-radius: 10px;
   position: relative;
@@ -414,7 +417,7 @@ video {
   margin-bottom: 5px;
   position: relative;
   
-  background: #cdcdcd;
+  background: #ffffff;
   border-radius: 3px;
   
   z-index: 1;
@@ -476,7 +479,7 @@ video {
   padding: 50px;
   padding-top: 125px;
   
-  background: #ededed;
+  background: #ffffff;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   /* to stop flickering of text in safari */

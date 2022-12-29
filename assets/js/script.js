@@ -69,10 +69,10 @@ function playSound2() {
 
 // Vue titre selon appareil utilisé
 if (window.matchMedia("(max-width: 600px)").matches) {
-  document.getElementById('title').innerHTML = "Agenda 🎄";
+  document.getElementById('title').innerHTML = "Agenda 🥂";
   document.getElementById('menuToggle').style.top="30px";
 } else {
-  document.getElementById('title').innerHTML = "Agenda 🎄 Bonnes Vacances !";
+  document.getElementById('title').innerHTML = "Agenda 🥂 GEII Groupe 2";
   document.getElementById('menuToggle').style.top="50px";
 }
 
@@ -453,7 +453,7 @@ function renderEdt() {
     locale: 'fr',
     weekends: false,
     eventColor: 'CornflowerBlue',
-    googleCalendarApiKey : 'AIzaSyATdEEIAy0sZoNb_WmildGuzDqMVEyK7bM', // Clé API Google Calendar Sécurisée NE PAS MODIFIER !!!
+    googleCalendarApiKey: "AIzaSyATdEEIAy0sZoNb_WmildGuzDqMVEyK7bM", // Clé API Google Calendar Sécurisée NE PAS MODIFIER !!!
     eventSources: 
     [
       {
@@ -508,7 +508,8 @@ setTimeout(function(){
       checkboxValues[this.id] = this.checked;
     });
     localStorage.setItem("checkboxValues", JSON.stringify(checkboxValues));
-    playSound();
+    // Fonction Noël - joue un son au clic
+    // playSound();
   });
   
   jQuery.each(checkboxValues, function(key, value) {

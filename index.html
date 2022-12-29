@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#001B29">
+    <meta name="theme-color" content="#243B55">
     <title>Agenda</title>
     <link rel="stylesheet" href="/assets/css/style.css" />
     <script src="https://www.google.com/recaptcha/api.js?render=6LefUVobAAAAAA5mVzvX-AzYqn2hSspwkBA-65BR"></script>
@@ -28,15 +28,16 @@
         <span></span>
         <ul id="menu">
           <a href="#" onclick="viewList()"><li>Accueil</li></a>
+          <a href="https://login.metrixmedia.fr/?app=agendaUnice"><li>Se Connecter</li></a>
           <a onclick="viewAdder()"><li>Ajouter un devoir</li></a>
-          <a onclick="viewInstaller()"><li>Télécharger l'application</li></a>
+          <a onclick="viewInstaller()"><li>Télécharger l'app</li></a>
           <a href="https://absences.unice.cf"><li>Absences</li></a>
           <a href="https://github.com/hugofnm/UniceAgenda/"><li>GitHub</li></a>
-          <a onclick="playSound()"><li>v4.1.6</li></a>
+          <a onclick="playSound()"><li>v4.2.0 Nice 🥴</li></a>
         </ul>
       </div>
       <div class="title">
-        <h1 id="title" style="font-size: clamp(16px, 7vw, 64px);; margin-bottom: 25px; border-right: solid 3px rgba(0, 0, 0, 0.75);"> Agenda 🎄 GEII Groupe 2 </h1>
+        <h1 id="title" style="font-size: clamp(16px, 7vw, 64px);; margin-bottom: 25px; border-right: solid 3px rgba(0, 0, 0, 0.75);"> Agenda 🥂 GEII Groupe 2 </h1>
       </div>
       <div style="margin-top: -20px; margin-right: auto; margin-bottom: 30px; margin-left: auto; width: 360px;">
         <button class="buttond" id="listview" onclick="viewList()">📑 Liste</button>
@@ -49,19 +50,19 @@
           <br>
           <label for="matiere">Matière :</label>
           <select id="matiere" name="matiere">
-            <option value="Mathématiques">Mathématiques</option>
-            <option value="Informatique">Informatique</option>
-            <option value="Elen (Électronique)">Électronique</option>
-            <option value="Ener (Énergie)">Énergie</option>
-            <option value="Automatismes">Automatisme</option>
-            <option value="SAE Robots">SAE Robots</option>
-            <option value="SAE Flipper">SAE Flipper</option>
-            <option value="SAE Sécurité">SAE Sécurité</option>
-            <option value="Physique Appliquée">Physique</option>
-            <option value="Anglais">Anglais</option>
-            <option value="Culture & Communication">Communication</option>
-            <option value="Projet Personnel & Professionnel">PPP</option>
-            <option value="BDE - Vie étudiante">BDE - Vie étudiante</option>
+            <option value="🧮 Mathématiques">Mathématiques</option>
+            <option value="💻 Informatique">Informatique</option>
+            <option value="📟 Électronique">Électronique</option>
+            <option value="⚡ Énergie">Énergie</option>
+            <option value="🤖 Automatismes">Automatisme</option>
+            <option value="⚙️ SAE Robots">SAE Robots</option>
+            <option value="🕹️ SAE Flipper">SAE Flipper</option>
+            <option value="🔒 SAE Sécurité">SAE Sécurité</option>
+            <option value="🧲 Physique Appliquée">Physique</option>
+            <option value="🇺🇸 Anglais">Anglais</option>
+            <option value="🇫🇷 Culture & Communication">Communication</option>
+            <option value="🗃️ Projet Personnel & Professionnel">PPP</option>
+            <option value="🍷 BDE - Vie étudiante">BDE - Vie étudiante</option>
           </select>
           <br>
           <label for="devoir">Devoir :</label>
@@ -84,7 +85,7 @@
       <div id='calendar'></div>
       <div id='edt'></div>
       <div style="display: inline-block;text-align: center; background-color: #001B29; padding: 50px;" id='installer'>
-        <p>Installer l'application</p>
+        <p>Télécharger l'application officielle</p>
         <a style="font-size: smaller;" href="https://firebasestorage.googleapis.com/v0/b/todoapp-metrix.appspot.com/o/Agenda.mobileconfig?alt=media&token=51289d5f-44f0-4303-a8f6-08e980d7d0d8"><button class="buttond">iOS (iPhone)</button></a>
         <button onclick="askPWA()" class="buttond">Android & PC (Chrome)</button>
       </div>
